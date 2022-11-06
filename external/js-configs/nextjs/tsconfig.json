@@ -1,0 +1,9 @@
+{
+  "extends": "../react/tsconfig.json",
+  "compilerOptions": {
+    // See https://github.com/microsoft/TypeScript/issues/35822
+    // for disabled declarations
+    "declaration": false,
+    "declarationMap": false,
+  },
+}

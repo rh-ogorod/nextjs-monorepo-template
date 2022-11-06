@@ -1,0 +1,33 @@
+{
+  "name": "nextjs-monorepo-template",
+  "packageManager": "yarn@3.2.4",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "packages/wui",
+    "external/js-configs"
+  ],
+  "scripts": {
+    "app:build": "yarn workspaces foreach --verbose --parallel --topological-dev run build",
+    "app:test": "yarn workspaces foreach --verbose --parallel --topological-dev run test",
+    "app:clean": "yarn workspaces foreach --verbose --parallel run clean && rm -vrf .log",
+    "app:purge": "yarn workspaces foreach --verbose --parallel run purge && rm -vrf .log node_modules",
+    "app:lint": "yarn workspaces foreach --verbose --parallel run lint"
+  },
+  "devDependencies": {
+    "@mixer/parallel-prettier": "^2.0.3",
+    "@prettier/plugin-xml": "^2.2.0",
+    "eslint": "^8.26.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.14.1",
+    "typescript": "^4.8.4",
+    "typescript-language-server": "^2.1.0"
+  },
+  "engines": {
+    "node": ">= 16",
+    "npm": "please-use-yarn",
+    "yarn": "3",
+    "pnpm": "please-use-yarn"
+  },
+  "engineStrict": true
+}

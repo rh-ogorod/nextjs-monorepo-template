@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+SDNAME="$(basename "${BASH_SOURCE[0]}")"
+
+SDPATH="$(dirname "${BASH_SOURCE[0]}")"
+if [[ ! -d "${SDPATH}" ]]; then SDPATH="${PWD}"; fi
+readonly SDPATH="$(cd -P "${SDPATH}" && pwd)"
+
+if [[ -z ${1:+-} ]]; then
+  echo Usage: "${SDNAME}" command package
+  echo where command is yarn command \(either scripts bin\),
+  echo and package is node package from packages directory.
+  echo If package is omitted 'then' coammand is executed from top workspace.
+  exit 1
+fi
+
+readonly command=$1
+readonly package=${2:-..}
+
+PRJ_ROOT_PATH="${SDPATH}/.."
+readonly PRJ_ROOT_PATH="$(cd "${PRJ_ROOT_PATH}" && pwd)"
+
+cd "${PRJ_ROOT_PATH}/packages/${package}" && echo cd "${PWD}"
+
+CMD=(yarn run "${command}")
+echo + "${CMD[@]}" && "${CMD[@]}"

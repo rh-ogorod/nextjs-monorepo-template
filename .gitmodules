@@ -1,0 +1,4 @@
+[submodule "@rh-ogorod/js-configs"]
+	path = external/js-configs
+	url = git@github.com:rh-ogorod/js-configs.git
+	branch = main
