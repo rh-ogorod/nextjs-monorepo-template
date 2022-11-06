@@ -1,5 +1,6 @@
 .rh-trusted
 node_modules
+.env
 
 .yarn/*
 !.yarn/patches
