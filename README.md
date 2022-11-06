@@ -1,2 +1,2 @@
-# stancia-mir-s0
-Stancia Mir Sketch 0
+# nextjs-monorepo-template
+Template to bootstrap nextjs yarn 3 monorepository projects
