@@ -1,7 +1,0 @@
-{
-  "extends": "./node/tsconfig.json",
-  "compilerOptions": {
-    "allowJs": true,
-    "noEmit": true,
-  },
-}
